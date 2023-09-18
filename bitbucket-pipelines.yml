@@ -1,1 +1,9 @@
-###
+image: google/cloud-sdk
+pipelines:
+   default:
+       - step:
+           oidc: true
+           script:
+               - ./getGoogleAccessToken.sh
+               - export GCP_ACCESS_TOKEN=$(jq '.accessToken' accessToken.json)
+
